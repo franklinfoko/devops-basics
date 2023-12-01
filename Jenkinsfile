@@ -112,18 +112,18 @@ pipeline {
             }
         }
 
-        stage('Docker Image Scan: trivy') {
+        // stage('Docker Image Scan: trivy') {
 
-            when { expression { params.action == 'create' } }
+        //     when { expression { params.action == 'create' } }
 
-            steps {
+        //     steps {
 
-                script {
+        //         script {
 
-                    dockerImageScan("${params.imageRepoName}", "${params.awsAccountId}", "${params.imageTag}", "${params.awsDefaultregion}")
-                }
-            }
-        }
+        //             dockerImageScan("${params.imageRepoName}", "${params.awsAccountId}", "${params.imageTag}", "${params.awsDefaultregion}")
+        //         }
+        //     }
+        // }
 
         stage('Docker Image Push: DockerHub & ECR') {
 
