@@ -150,8 +150,8 @@ pipeline {
                     sh "docker save -o ${params.imageRepoName}.tar ${params.imageRepoName}"
                     sh "pwd"
                     sh "ls"
-                    sh "sshpass -p '${MINIKUBE_PASSWORD}' scp -o StrictHostKeyChecking=no ${params.imageRepoName}.tar ${MINIKUBE_USER}@18.213.204.19:/home/centos/test-devops/"
-                    sh "sshpass -p '${MINIKUBE_PASSWORD}' ssh -o StrictHostKeyChecking=no -tt ${MINIKUBE_USER}@18.213.204.19 'docker load -i /home/centos/test-devops/${params.imageRepoName}.tar'"
+                    sh "sshpass -p '${MINIKUBE_PASSWORD}' sudo scp -o StrictHostKeyChecking=no ${params.imageRepoName}.tar ${MINIKUBE_USER}@18.213.204.19:/home/centos/test-devops/"
+                    sh "sshpass -p '${MINIKUBE_PASSWORD}' sudo ssh -o StrictHostKeyChecking=no -tt ${MINIKUBE_USER}@18.213.204.19 'docker load -i /home/centos/test-devops/${params.imageRepoName}.tar'"
                    }
                 }
             }
