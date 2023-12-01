@@ -11,6 +11,6 @@ public class DemoController {
 
     @GetMapping("/hello")
     public String hello(){
-        return "Streamlining Medicine, Simplifying Lives";
+        return "Streamlining Medicine, Simplifying Lives, OK";
     }
 }
