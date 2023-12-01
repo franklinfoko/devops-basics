@@ -169,7 +169,7 @@ pipeline {
 
                     //sh "sshpass -p '${MINIKUBE_PASSWORD}' scp -o StrictHostKeyChecking=no abc-deployment.yml ${MINIKUBE_USER}@18.213.204.19:/home/centos/abc/"
                     sh "sshpass -p '${MINIKUBE_PASSWORD}' ssh -o StrictHostKeyChecking=no -tt ${MINIKUBE_USER}@18.213.204.19 'sudo kubectl apply -f /home/centos/test-devops/test-deployment.yml -n test'"
-                    sh "sshpass -p '${MINIKUBE_PASSWORD}' ssh -o StrictHostKeyChecking=no -tt ${MINIKUBE_USER}@18.213.204.19 'kubectl rollout restart deployment/test-deployment -n test'"
+                    sh "sshpass -p '${MINIKUBE_PASSWORD}' ssh -o StrictHostKeyChecking=no -tt ${MINIKUBE_USER}@18.213.204.19 'sudo kubectl rollout restart deployment/test-deployment -n test'"
 
                    }
                 }
