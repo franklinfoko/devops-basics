@@ -112,31 +112,31 @@ pipeline {
             }
         }
 
-        // stage('Docker Image Scan: trivy') {
+        stage('Docker Image Scan: trivy') {
 
-        //     when { expression { params.action == 'create' } }
+            when { expression { params.action == 'create' } }
 
-        //     steps {
+            steps {
 
-        //         script {
+                script {
 
-        //             dockerImageScan("${params.imageRepoName}", "${params.awsAccountId}", "${params.imageTag}", "${params.awsDefaultregion}")
-        //         }
-        //     }
-        // }
+                    dockerImageScan("${params.imageRepoName}", "${params.awsAccountId}", "${params.imageTag}", "${params.awsDefaultregion}")
+                }
+            }
+        }
 
-        // stage('Docker Image Push: DockerHub & ECR') {
+        stage('Docker Image Push: DockerHub & ECR') {
 
-        //     when { expression { params.action == 'create' } }
+            when { expression { params.action == 'create' } }
 
-        //     steps {
+            steps {
 
-        //         script {
+                script {
 
-        //             dockerImagePush("${params.imageRepoName}", "${params.imageTag}", "${params.hubUser}", "${params.awsDefaultregion}", "${params.awsAccountId}" )
-        //         }
-        //     }
-        // }
+                    dockerImagePush("${params.imageRepoName}", "${params.imageTag}", "${params.hubUser}", "${params.awsDefaultregion}", "${params.awsAccountId}" )
+                }
+            }
+        }
 
         stage('Docker Copy Image: Minikube') {
 
