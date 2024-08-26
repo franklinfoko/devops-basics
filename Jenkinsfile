@@ -90,8 +90,10 @@ pipeline {
             when { expression { params.action == 'create' } }
 
             steps {
-                script {
-                    mvnBuild()
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        mvnBuild()
+                    }
                 }   
             }
             post {
