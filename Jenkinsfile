@@ -99,7 +99,7 @@ pipeline {
             post {
                 always {
                     script {
-                        sh 'ls'
+                        sh 'l'
                     }
                 }
             }
