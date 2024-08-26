@@ -94,7 +94,24 @@ pipeline {
 
                 script {
 
-                    mvnBuild()
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        echo ' Running test...'
+                        mvnBuild()
+                        error 'Build failed!'
+                    }
+                } 
+            }
+        }
+
+        stage('Hello World!') {
+
+            when { expression { params.action == 'create' } }
+
+            steps {
+
+                script {
+
+                    sh 'hello World'
                 }
             }
         }
