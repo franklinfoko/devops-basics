@@ -103,7 +103,7 @@ pipeline {
                         }
                     }
                 }
-                error 'Test Failed
+                error 'Test Failed'
             }
         }
 
