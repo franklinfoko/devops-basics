@@ -111,7 +111,7 @@ pipeline {
 
                 script {
 
-                    sh 'hello World'
+                    echo 'hello World'
                 }
             }
         }
