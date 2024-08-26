@@ -96,6 +96,13 @@ pipeline {
                     mvnBuild()
                 } 
             }
+            post {
+                always {
+                    script {
+                        sh 'ls'
+                    }
+                }
+            }
         }
 
         stage('Hello World!') {
