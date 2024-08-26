@@ -87,7 +87,6 @@ pipeline {
         // }
 
         stage('Maven Build: Maven') {
-
             when { expression { params.action == 'create' } }
 
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -98,14 +97,17 @@ pipeline {
                 }
                 post {
                     always {
-                        script {
-                            sh 'l'
+                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                            script {
+                                sh 'ls'
+                            }
                         }
                     }
                 }
-                error 'Test Failed'
             }
         }
+
+
 
         stage('Hello World!') {
 
