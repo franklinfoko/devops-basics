@@ -93,12 +93,7 @@ pipeline {
             steps {
 
                 script {
-
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        echo ' Running test...'
-                        mvnBuild()
-                        error 'Build failed!'
-                    }
+                    mvnBuild()
                 } 
             }
         }
